@@ -1,0 +1,346 @@
+version: 7
+version_hash: iKChdBcwBxdbWaKYlkdXj3+m+ZOv6YR0eYWslGt0Wpk=
+engine_version: 6
+name: sql_database
+tables:
+  _dlt_version:
+    columns:
+      version:
+        nullable: false
+        data_type: bigint
+      engine_version:
+        nullable: false
+        data_type: bigint
+      inserted_at:
+        nullable: false
+        data_type: timestamp
+      schema_name:
+        nullable: false
+        data_type: text
+      version_hash:
+        nullable: false
+        data_type: text
+      schema:
+        nullable: false
+        data_type: text
+    write_disposition: skip
+    description: Created by DLT. Tracks schema updates
+  _dlt_loads:
+    columns:
+      load_id:
+        nullable: false
+        data_type: text
+      schema_name:
+        nullable: true
+        data_type: text
+      status:
+        nullable: false
+        data_type: bigint
+      inserted_at:
+        nullable: false
+        data_type: timestamp
+      schema_version_hash:
+        nullable: true
+        data_type: text
+    write_disposition: skip
+    description: Created by DLT. Tracks completed loads
+  family:
+    columns:
+      rfam_acc:
+        nullable: false
+        primary_key: true
+        data_type: text
+      rfam_id:
+        nullable: true
+        data_type: text
+      auto_wiki:
+        nullable: true
+        data_type: bigint
+      description:
+        nullable: true
+        data_type: text
+      author:
+        nullable: true
+        data_type: text
+      seed_source:
+        nullable: true
+        data_type: text
+      gathering_cutoff:
+        nullable: true
+        data_type: decimal
+      trusted_cutoff:
+        nullable: true
+        data_type: decimal
+      noise_cutoff:
+        nullable: true
+        data_type: decimal
+      comment:
+        nullable: true
+        data_type: text
+      cmbuild:
+        nullable: true
+        data_type: text
+      cmcalibrate:
+        nullable: true
+        data_type: text
+      cmsearch:
+        nullable: true
+        data_type: text
+      num_seed:
+        nullable: true
+        data_type: bigint
+      num_full:
+        nullable: true
+        data_type: bigint
+      num_genome_seq:
+        nullable: true
+        data_type: bigint
+      num_refseq:
+        nullable: true
+        data_type: bigint
+      type:
+        nullable: true
+        data_type: text
+      structure_source:
+        nullable: true
+        data_type: text
+      number_of_species:
+        nullable: true
+        data_type: bigint
+      number_3d_structures:
+        nullable: true
+        data_type: bigint
+      tax_seed:
+        nullable: true
+        data_type: text
+      ecmli_lambda:
+        nullable: true
+        data_type: decimal
+      ecmli_mu:
+        nullable: true
+        data_type: decimal
+      ecmli_cal_db:
+        nullable: true
+        data_type: bigint
+      ecmli_cal_hits:
+        nullable: true
+        data_type: bigint
+      maxl:
+        nullable: true
+        data_type: bigint
+      clen:
+        nullable: true
+        data_type: bigint
+      match_pair_node:
+        nullable: true
+        data_type: bigint
+      hmm_tau:
+        nullable: true
+        data_type: decimal
+      hmm_lambda:
+        nullable: true
+        data_type: decimal
+      created:
+        nullable: true
+        data_type: timestamp
+      updated:
+        nullable: true
+        data_type: timestamp
+      _dlt_load_id:
+        nullable: false
+        data_type: text
+      _dlt_id:
+        nullable: false
+        unique: true
+        data_type: text
+      previous_id:
+        nullable: true
+        data_type: text
+    write_disposition: merge
+  clan:
+    columns:
+      clan_acc:
+        nullable: false
+        primary_key: true
+        data_type: text
+      id:
+        nullable: true
+        data_type: text
+      description:
+        nullable: true
+        data_type: text
+      author:
+        nullable: true
+        data_type: text
+      comment:
+        nullable: true
+        data_type: text
+      created:
+        nullable: true
+        data_type: timestamp
+      updated:
+        nullable: true
+        data_type: timestamp
+      _dlt_load_id:
+        nullable: false
+        data_type: text
+      _dlt_id:
+        nullable: false
+        unique: true
+        data_type: text
+      previous_id:
+        nullable: true
+        data_type: text
+    write_disposition: merge
+  _dlt_pipeline_state:
+    columns:
+      version:
+        nullable: false
+        data_type: bigint
+      engine_version:
+        nullable: false
+        data_type: bigint
+      pipeline_name:
+        nullable: false
+        data_type: text
+      state:
+        nullable: false
+        data_type: text
+      created_at:
+        nullable: false
+        data_type: timestamp
+      _dlt_load_id:
+        nullable: false
+        data_type: text
+      _dlt_id:
+        nullable: false
+        unique: true
+        data_type: text
+    write_disposition: append
+  author:
+    columns:
+      author_id:
+        nullable: false
+        primary_key: true
+        data_type: bigint
+      name:
+        nullable: true
+        data_type: text
+      last_name:
+        nullable: true
+        data_type: text
+      initials:
+        nullable: true
+        data_type: text
+      orcid:
+        nullable: true
+        data_type: text
+      synonyms:
+        nullable: true
+        data_type: text
+      _dlt_load_id:
+        nullable: false
+        data_type: text
+      _dlt_id:
+        nullable: false
+        unique: true
+        data_type: text
+    write_disposition: replace
+  genome:
+    columns:
+      upid:
+        nullable: false
+        primary_key: true
+        data_type: text
+      description:
+        nullable: true
+        data_type: text
+      total_length:
+        nullable: true
+        data_type: bigint
+      ncbi_id:
+        nullable: true
+        data_type: bigint
+      scientific_name:
+        nullable: true
+        data_type: text
+      kingdom:
+        nullable: true
+        data_type: text
+      num_rfam_regions:
+        nullable: true
+        data_type: bigint
+      num_families:
+        nullable: true
+        data_type: bigint
+      is_reference:
+        nullable: true
+        data_type: bigint
+      is_representative:
+        nullable: true
+        data_type: bigint
+      created:
+        nullable: true
+        data_type: timestamp
+      updated:
+        nullable: true
+        data_type: timestamp
+      _dlt_load_id:
+        nullable: false
+        data_type: text
+      _dlt_id:
+        nullable: false
+        unique: true
+        data_type: text
+      assembly_acc:
+        nullable: true
+        data_type: text
+      assembly_version:
+        nullable: true
+        data_type: bigint
+      assembly_level:
+        nullable: true
+        data_type: text
+      ungapped_length:
+        nullable: true
+        data_type: bigint
+      assembly_name:
+        nullable: true
+        data_type: text
+      study_ref:
+        nullable: true
+        data_type: text
+      circular:
+        nullable: true
+        data_type: bigint
+      wgs_acc:
+        nullable: true
+        data_type: text
+      wgs_version:
+        nullable: true
+        data_type: bigint
+      common_name:
+        nullable: true
+        data_type: text
+    write_disposition: append
+settings:
+  detections:
+  - timestamp
+  - iso_timestamp
+  default_hints:
+    not_null:
+    - _dlt_id
+    - _dlt_root_id
+    - _dlt_parent_id
+    - _dlt_list_idx
+    - _dlt_load_id
+    foreign_key:
+    - _dlt_parent_id
+    root_key:
+    - _dlt_root_id
+    unique:
+    - _dlt_id
+normalizers:
+  names: snake_case
+  json:
+    module: dlt.common.normalizers.json.relational
