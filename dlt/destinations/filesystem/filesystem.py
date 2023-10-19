@@ -141,7 +141,8 @@ class FilesystemClient(JobClientBase, WithStagingDataset):
         # create destination dirs for all tables
         dirs_to_create = self._get_table_dirs(only_tables or self.schema.tables.keys())
         for directory in dirs_to_create:
-            self.fs_client.makedirs(directory, exist_ok=True)
+            if not self.fs_client.isdir(directory):
+                self.fs_client.makedirs(directory, exist_ok=True)
         return expected_update
 
     def _get_table_dirs(self, table_names: Iterable[str]) -> Set[str]:
