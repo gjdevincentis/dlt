@@ -144,7 +144,7 @@ To generate Zendesk chat OAuth token, please refer to this
 
 ### Zendesk Talk
 
-Zendesk talk fetches the data using Zendesk Tolk API.
+Zendesk talk fetches the data using Zendesk Talk API.
 
 1. Obtaining credentials for Zendesk Talk mirrors the process for
    [Zendesk support](#zendesk-support).
