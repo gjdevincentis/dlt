@@ -210,7 +210,7 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: 'Customising pipelines',
+          label: 'Customise pipelines',
           items: [
             'general-usage/customising-pipelines/renaming_columns',
             'general-usage/customising-pipelines/pseudonymizing_columns',
@@ -218,11 +218,11 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: 'Running in production',
+          label: 'Run in production',
           link: {
             type: 'generated-index',
-            title: 'Running in production',
-            description: 'Learn how to run dlt in production.',
+            title: 'Run in production',
+            description: 'How to run dlt in production.',
             slug: 'running-in-production',
             keywords: ['production'],
           },
